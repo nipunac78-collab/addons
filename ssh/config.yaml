@@ -42,3 +42,18 @@ schema:
     tcp_forwarding: bool
 startup: services
 uart: true
+
+auth_providers:
+  - type: homeassistant
+
+  - type: ldap
+    host: 192.168.88.5
+    port: 389
+    ssl: false
+    bind_dn: CN=Administrator,CN=Users,DC=nipunranga_dc.local,DC=local
+    bind_password: Complex2025$12
+    base_dn: DC=nipunranga_dc.local,DC=local
+    attributes:
+      name: givenName
+      username: sAMAccountName
+      mail: mail
